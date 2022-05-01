@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
 
@@ -8,6 +10,12 @@ class MyLogin extends StatefulWidget {
 class _MyLoginState extends State<MyLogin> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/login.png')
+        )
+      ),
+    );
   }
 }
