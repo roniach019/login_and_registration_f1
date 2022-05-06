@@ -1,80 +1,135 @@
 //sdk path - C:\Users\DELL\Documents\FlutterDev\flutter\bin\cache\dart-sdk
 import 'package:flutter/material.dart';
 
-class MyLogin extends StatefulWidget {
+class MyLogin extends StatelessWidget {
   const MyLogin({Key? key}) : super(key: key);
 
   @override
-  State<MyLogin> createState() => _MyLoginState();
-}
-
-class _MyLoginState extends State<MyLogin> {
-  @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
-          image:
-          AssetImage('assets/login.png'),
-            fit: BoxFit.cover
+          image: AssetImage('assets/login.png'),
+          fit: BoxFit.cover
         )
       ),
       child: Scaffold(
-        // transparent dile sada rong ke bodle immage bosabe
         backgroundColor: Colors.transparent,
-        appBar: AppBar(),
-        body: Stack(  // Column er bodole Stack
+        body: Stack(
           children: [
+            Container(),
             Container(
-              //padding: EdgeInsets.only(left: 35, top: 130),
-              child: Text(
-                'Wellcomefefef\nBack',
+              padding: EdgeInsets.only(left: 35, top: 130),
+              child: const Text(
+                'Wellcome\nBack',
                 style: TextStyle(color: Colors.white, fontSize: 33),
               )
             ),
             SingleChildScrollView(
               child: Container(
-                padding: EdgeInsets.only
-                    ( // size ta sob mobile soman vabe dekhanur jonno eiti
-                    top: MediaQuery.of(
-                    context).size.height*1,
-                    right: 30,
-                    left:35
-                    ),
-                // 2 ta text field deuar jonno column dibo
+
+                //EdgeInsets.only
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    TextField(
-                      decoration: InputDecoration(
-                        fillColor: Colors.grey.shade100,
-                        filled: true,
-                        hintText: 'Email',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10)
-                        )
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30,
-                    ),
-                    TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                          fillColor: Colors.grey.shade100,
-                          filled: true,
-                          hintText: 'Password',
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)
+                    Container(
+                      margin: const EdgeInsets.only(left: 35, right: 35),
+                      child: Column(
+                        children: [
+                          TextField(
+                              style: const TextStyle(color: Colors.black),
+                              decoration:InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "email",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )
+                              )
+                          ),
+                          const SizedBox(height: 30,),
+                          TextField(
+                            style: const TextStyle(),
+                            decoration: InputDecoration(
+                                fillColor: Colors.grey.shade100,
+                                filled: true,
+                                hintText: "Password",
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )
+                            ),
+                            obscureText: true,
+                          ),
+                          const SizedBox(height: 40,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                'Sign in',
+                                style: TextStyle(
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.w700
+                                ),
+                              ),
+                              CircleAvatar(
+                                radius: 30,
+                                backgroundColor: Color(0xff4c505b),
+                                child: IconButton(
+                                  color: Colors.white,
+                                  onPressed:(){},
+                                  icon: const Icon(
+                                    Icons.arrow_forward,
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TextButton(
+                                onPressed: (){
+                                  Navigator.pushNamed(context, 'register');
+                                },
+                                child: const Text(
+                                    'Sign Up',
+                                     textAlign: TextAlign.left,
+                                     style: TextStyle(
+                                       decoration: TextDecoration.underline,
+                                       color: Color(0xff4c505b),
+                                       fontSize: 18
+                                     )
+                                ),
+                                style: const ButtonStyle(),
+                              ),
+
+                              TextButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    'Forgot Password',
+                                    style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      color: Color(0xff4c505b),
+                                      fontSize: 18,
+                                    ),
+                                  )
+                              )
+                            ],
                           )
+                        ]
                       ),
-                    ),
+                    )
                   ],
-                ),
+                )
               ),
             )
           ],
-        )
+        ),
       ),
+
     );
   }
 }
